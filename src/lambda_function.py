@@ -30,12 +30,10 @@ def lambda_handler(event, context):
             text = transcribe_audio(audio_data.multipart_filename, audio_data.value)
             return {
                 "statusCode": 200,
-                "headers": {"Access-Control-Allow-Origin": "*"},
                 "text": text
             }
         return {
             "statusCode": 404,
-            "headers": {"Access-Control-Allow-Origin": "*"},
             "text": "No audio!"
         }
     except ValueError as ve:
